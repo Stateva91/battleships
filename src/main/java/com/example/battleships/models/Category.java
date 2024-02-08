@@ -8,7 +8,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(unique = true, nullable = false)
     private ShipType name;
     @Column(columnDefinition = "text")
