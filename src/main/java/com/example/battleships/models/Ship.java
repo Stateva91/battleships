@@ -18,7 +18,7 @@ public class Ship {
     private long power;
     private LocalDate created;
     @ManyToOne
-    private User owner;
+    private User user;
 
     @ManyToOne
     private Category category;
@@ -66,12 +66,12 @@ public class Ship {
         this.created = created;
     }
 
-    public User getOwner() {
-        return owner;
+    public User getUser() {
+        return user;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Category getCategory() {
