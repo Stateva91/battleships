@@ -1,4 +1,4 @@
-package com.example.battleships;
+package com.example.battleships.seeders;
 
 import com.example.battleships.models.Category;
 import com.example.battleships.models.Ship;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Component
 public class CategorySeeder implements CommandLineRunner {
 
-    public CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
     @Autowired
     public CategorySeeder(CategoryRepository categoryRepository) {
