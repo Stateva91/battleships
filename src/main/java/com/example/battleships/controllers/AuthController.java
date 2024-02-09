@@ -27,6 +27,14 @@ public class AuthController {
     public String register(@Valid UserRegistrationDTO registrationDTO,
                            BindingResult bindingResult,
                            RedirectAttributes redirectAttributes){
-   return  "register";
+    if(bindingResult.hasErrors()){
+        redirectAttributes.addFlashAttribute("registrationDTO", registrationDTO);
+        redirectAttributes.addFlashAttribute(
+                "org.springframework.validation.BindingResult.registrationDTO",bindingResult);
+        return "redirect:/register";
+    }
+
+
+   return  "login";
     }
 }
