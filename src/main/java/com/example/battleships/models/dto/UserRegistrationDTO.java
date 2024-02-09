@@ -61,4 +61,15 @@ public class UserRegistrationDTO {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+    @Override
+    public String toString() {
+        return "UserRegistrationDTO{" +
+                "username='" + username + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                '}';
+    }
 }
