@@ -1,6 +1,7 @@
 package com.example.battleships.services;
 
 import com.example.battleships.models.User;
+import com.example.battleships.models.dto.LoginDTO;
 import com.example.battleships.models.dto.UserRegistrationDTO;
 import com.example.battleships.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,9 @@ public class AuthService {
     user.setPassword(registrationDTO.getPassword());
     this.userRepository.save(user);
     return  true;
+    }
+
+    public boolean login(LoginDTO loginDTO) {
+        return false;
     }
 }

@@ -54,5 +54,29 @@ public class AuthController {
         return  "login";
     }
 
+   @PostMapping("login")
+    public String login(@Valid LoginDTO loginDTO,
+                        BindingResult bindingResult,
+                        RedirectAttributes redirectAttributes){
+       if (this.authService.isLoggedIn()) {
+           return "redirect:/home";
+       }
 
+       if (bindingResult.hasErrors()) {
+           redirectAttributes.addFlashAttribute("loginDTO", loginDTO);
+           redirectAttributes.addFlashAttribute(
+                   "org.springframework.validation.BindingResult.loginDTO", bindingResult);
+
+           return "redirect:/login";
+       }
+
+       if (!this.authService.login(loginDTO)) {
+           redirectAttributes.addFlashAttribute("loginDTO", loginDTO);
+           redirectAttributes.addFlashAttribute("badCredentials", true);
+
+           return "redirect:/login";
+       }
+
+       return "redirect:/home";
+   }
 }
