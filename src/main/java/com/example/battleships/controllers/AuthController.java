@@ -1,5 +1,6 @@
 package com.example.battleships.controllers;
 
+import com.example.battleships.models.dto.LoginDTO;
 import com.example.battleships.models.dto.UserRegistrationDTO;
 import com.example.battleships.services.AuthService;
 import jakarta.validation.Valid;
@@ -43,4 +44,15 @@ public class AuthController {
 
    return  "redirect:/login";
     }
+    @ModelAttribute("loginDTO")
+    public LoginDTO initLoginDTO(){
+        return new LoginDTO();
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return  "login";
+    }
+
+
 }
